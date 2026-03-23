@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>How to Fix Common Claude Code Errors (2026)</title>
+<meta name="description" content="Fix the most common Claude Code errors: organization disabled, TLS failures, architecture mismatches, context overflow, and 30+ more with copy-paste solutions.">
+<meta name="keywords" content="Claude Code errors, Claude Code not working, Claude Code fix, Claude Code 500 error, Claude Code organization disabled, Claude Code troubleshooting">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/blog/fix-common-errors.html">
+<meta property="og:title" content="How to Fix Common Claude Code Errors (2026)">
+<meta property="og:description" content="Fix the most common Claude Code errors: organization disabled, TLS failures, architecture mismatches, context overflow, and 30+ more with copy-paste solutions.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://claudecodeguide.com/blog/fix-common-errors.html">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Fix Common Claude Code Errors (2026)">
+<meta name="twitter:description" content="Fix the most common Claude Code errors: organization disabled, TLS failures, architecture mismatches, context overflow, and 30+ more with copy-paste solutions.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Fix Common Claude Code Errors (2026)", "description": "Fix the most common Claude Code errors: organization disabled, TLS failures, architecture mismatches, context overflow, and 30+ more with copy-paste solutions.", "author": {"@type": "Person", "name": "Eric Coste"}, "publisher": {"@type": "Organization", "name": "EBSS Web Studio"}, "datePublished": "2026-03-01", "dateModified": "2026-03-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does Claude Code say my organization is disabled?", "acceptedAnswer": {"@type": "Answer", "text": "This happens when an old ANTHROPIC_API_KEY environment variable overrides your subscription authentication. Run 'unset ANTHROPIC_API_KEY' and remove it from your shell profile (~/.zshrc or ~/.bashrc), then authenticate with 'claude auth login'."}}, {"@type": "Question", "name": "How do I fix Claude Code command not found?", "acceptedAnswer": {"@type": "Answer", "text": "This means Node.js isn't installed or the npm global bin directory isn't in your PATH. Verify with 'node --version' (needs 18+) and check your PATH includes the npm global directory. On macOS/Linux: 'npm config get prefix' then add /bin to your PATH."}}, {"@type": "Question", "name": "Why is Claude Code running slowly?", "acceptedAnswer": {"@type": "Answer", "text": "Long conversations accumulate context, slowing responses. Use '/compact' to summarize, '/clear' when switching tasks, and check your model \u2014 Opus is slower than Sonnet. Also check status.claude.com for service issues."}}, {"@type": "Question", "name": "What does the context window error mean?", "acceptedAnswer": {"@type": "Answer", "text": "You've filled Claude's context window (200K or 1M tokens depending on model). Claude auto-compacts at 95% capacity, but you can manually run '/compact' with instructions about what to preserve, or '/clear' to start fresh."}}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<nav class="blog-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="blog-nav-logo">⚡ <span>claude</span>code.guide</a>
+  <div class="blog-nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/#modules">Modules</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#pricing" class="blog-nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="blog-hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="document.getElementById('bm').classList.toggle('active');this.setAttribute('aria-expanded',document.getElementById('bm').classList.contains('active'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="blog-mobile-menu" id="bm">
+  <a href="/blog/">Blog</a>
+  <a href="/#modules">Modules</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#pricing">Get the Guide — $19</a>
+</div>
+<main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>How to Fix Common Claude Code Errors (20
+</nav>
+<header class="article-header">
+  <h1>How to Fix Common Claude Code Errors (2026)</h1>
+  <div class="article-meta">
+    <span>By Eric Coste</span>
+    <time datetime="2026-03-01">March 12, 2026</time>
+    <span>11 min read</span>
+  </div>
+</header>
+<article class="article-body">
+<h2>Quick Diagnostic: Run These First</h2>
+<p>Before diving into specific errors, run these five checks in order. They resolve about 90% of Claude Code issues:</p>
+<pre><code># 1. Check installation
+claude --version
+
+# 2. Run built-in diagnostics
+claude doctor
+
+# 3. Check your auth status (inside Claude Code)
+/status
+
+# 4. Verify Node.js version
+node --version  # Needs 18+
+
+# 5. Test network connectivity
+curl -s https://storage.googleapis.com > /dev/null && echo "OK" || echo "BLOCKED"</code></pre>
+
+<h2>"This organization has been disabled"</h2>
+<p>This is the single most common Claude Code error, and it's almost always caused by an old API key overriding your subscription. When <code>ANTHROPIC_API_KEY</code> is set in your environment, Claude Code uses that key instead of your Pro/Max subscription's OAuth credentials.</p>
+<pre><code># Fix: Remove the old API key
+unset ANTHROPIC_API_KEY
+
+# Remove from shell profile permanently
+# Check these files for 'export ANTHROPIC_API_KEY=' lines:
+# ~/.zshrc, ~/.bashrc, ~/.profile, ~/.bash_profile
+
+# Re-authenticate
+claude auth login
+
+# Verify
+/status  # Should show your subscription</code></pre>
+
+<h2>Command Not Found</h2>
+<p>Your terminal can't locate the Claude Code binary. This means either Node.js isn't installed, or the npm global packages directory isn't in your PATH.</p>
+<pre><code># Check Node.js
+node --version  # Need 18+
+
+# If missing, install via nvm (recommended)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nvm install 20
+nvm use 20
+
+# Reinstall Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# Verify PATH includes npm global bin
+npm config get prefix  # e.g., /usr/local or ~/.npm-global
+# Add {prefix}/bin to PATH in your shell profile</code></pre>
+
+<h2>TLS/SSL Connection Errors</h2>
+<p>Errors like <code>curl: (35) TLS connect error</code> or <code>Could not establish trust relationship</code> indicate the connection to Anthropic's servers is being intercepted or blocked — usually by corporate firewalls, proxies, or outdated CA certificates.</p>
+<pre><code># Test direct connection
+curl -v https://storage.googleapis.com 2>&1 | head -20
+
+# If behind a corporate proxy:
+export HTTPS_PROXY=http://your-proxy:8080
+export HTTP_PROXY=http://your-proxy:8080
+
+# Update CA certificates (Linux)
+sudo apt update && sudo apt install ca-certificates</code></pre>
+
+<h2>Architecture Mismatch</h2>
+<p>If you see errors about loading binaries, <code>dyld: cannot load</code>, or <code>Abort trap: 6</code>, the downloaded binary doesn't match your system architecture (ARM vs x86_64) or your OS version.</p>
+<pre><code># Check your architecture
+uname -m
+# x86_64 = Intel/AMD 64-bit
+# aarch64/arm64 = ARM (Apple Silicon, ARM servers)
+
+# On macOS, check version (need 13.0+)
+sw_vers -productVersion
+
+# Reinstall with correct architecture
+npm uninstall -g @anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code</code></pre>
+
+<h2>Context Window Overflow</h2>
+<p>When your conversation fills the context window, Claude's responses degrade — it forgets earlier instructions, repeats itself, or produces lower-quality code. Claude auto-compacts at 95% capacity, but proactive management is better.</p>
+<pre><code># Check current usage (inside Claude Code)
+/cost
+
+# Compress while keeping important context
+/compact Keep the implementation approach and API signatures
+
+# Start completely fresh
+/clear
+
+# For persistent instructions, use CLAUDE.md instead of
+# repeating them in conversation</code></pre>
+
+<h2>MCP Server Connection Failures</h2>
+<p>MCP servers extend Claude Code with external tools, but connection issues are common. The most frequent cause is misconfigured server paths or authentication.</p>
+<pre><code># Debug MCP connections
+claude --mcp-debug
+
+# Check your MCP config
+cat .claude/settings.json | jq '.mcpServers'
+
+# Common fix: restart both MCP server and Claude Code
+# Verify the server process is running
+ps aux | grep mcp</code></pre>
+
+<h2>Sandbox Errors</h2>
+<p>If sandboxing fails with namespace creation errors, you're likely in an environment that doesn't support user namespaces (Docker, WSL1, or an older kernel).</p>
+<pre><code># Check sandbox status (inside Claude Code)
+/sandbox
+
+# On Linux, install requirements
+sudo apt install bubblewrap socat
+
+# In Docker, enable weaker sandbox mode
+# In your settings.json:
+# "sandbox": { "enableWeakerNestedSandbox": true }
+
+# WSL1 is not supported — upgrade to WSL2
+wsl --set-version Ubuntu 2</code></pre>
+
+<h2>Rate Limit Errors (429)</h2>
+<p>HTTP 429 means you've hit your usage limits. For Pro subscribers, this is the 5-hour sliding window. For API users, it's the requests-per-minute limit.</p>
+<pre><code># Check your current plan limits
+/status
+
+# Quick mitigations:
+# 1. Switch to a cheaper model for routine tasks
+/model sonnet
+
+# 2. Reduce thinking token budget
+export MAX_THINKING_TOKENS=8000
+
+# 3. Wait for the rate limit window to reset
+# Pro: ~5 hour window, Max 5x: 5x the window</code></pre>
+
+<div class="cta-box">
+  <h3>Master Claude Code in One Afternoon</h3>
+  <p>9 modules, 120+ commands, 30+ error fixes. Cross-platform. One-time $19.</p>
+  <a href="/#pricing" class="btn">Get Instant Access — $19</a>
+  <p class="bonus">Bonus: Free Claude Code Quick-Start Guide included with purchase</p>
+</div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Why does Claude Code say my organization is disabled?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">This happens when an old ANTHROPIC_API_KEY environment variable overrides your subscription authentication. Run 'unset ANTHROPIC_API_KEY' and remove it from your shell profile (~/.zshrc or ~/.bashrc), then authenticate with 'claude auth login'.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">How do I fix Claude Code command not found?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">This means Node.js isn't installed or the npm global bin directory isn't in your PATH. Verify with 'node --version' (needs 18+) and check your PATH includes the npm global directory. On macOS/Linux: 'npm config get prefix' then add /bin to your PATH.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Why is Claude Code running slowly?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Long conversations accumulate context, slowing responses. Use '/compact' to summarize, '/clear' when switching tasks, and check your model — Opus is slower than Sonnet. Also check status.claude.com for service issues.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What does the context window error mean?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">You've filled Claude's context window (200K or 1M tokens depending on model). Claude auto-compacts at 95% capacity, but you can manually run '/compact' with instructions about what to preserve, or '/clear' to start fresh.</p>
+</div>
+
+</article>
+<section class="related-posts"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-claude-code.html" class="related-card"><h3>What Is Claude Code?</h3><p>Complete beginner's guide to Anthropic's AI coding tool.</p></a><a href="/blog/hosting-setup.html" class="related-card"><h3>Best Hosting & Setup</h3><p>Local vs cloud vs Codespaces for Claude Code.</p></a><a href="/blog/workflow-best-practices.html" class="related-card"><h3>Workflow Best Practices</h3><p>Session management, prompting, and productivity tips.</p></a></div></section>
+</main>
+<footer class="blog-footer" role="contentinfo">
+  <p>&copy; 2026 <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>. All rights reserved. Made with 🤖 in Las Vegas</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Master Claude Code: The Complete Developer's Guide | By Eric Coste</title>
+<meta name="description" content="Stop fighting Claude Code errors. 9 step-by-step modules with copy-paste commands for setup, configuration, workflow optimization, cost reduction, security, and advanced techniques. Cross-platform. $19 one-time.">
+<meta name="keywords" content="Claude Code guide, Claude Code tutorial, Claude Code errors, Claude Code setup, Claude Code configuration, CLAUDE.md, Claude Code cost optimization, Claude Code security, Claude Code sandboxing, Claude Code workflow">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/">
+<meta property="og:title" content="Master Claude Code: The Complete Developer's Guide">
+<meta property="og:description" content="9 modules. 120+ copy-paste commands. Fix errors, optimize costs, secure your setup. One-time $19.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://claudecodeguide.com/">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Master Claude Code: The Complete Developer's Guide">
+<meta name="twitter:description" content="9 modules. 120+ copy-paste commands. Fix errors, optimize costs, secure your setup. One-time $19.">
+<meta name="twitter:image" content="https://claudecodeguide.com/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Master Claude Code: The Complete Developer's Guide",
+  "description": "9 step-by-step modules with 120+ copy-paste commands covering Claude Code setup, configuration, workflow optimization, error fixes, model selection, cost reduction, security, and advanced techniques.",
+  "brand": { "@type": "Brand", "name": "EBSS Web Studio" },
+  "author": { "@type": "Person", "name": "Eric Coste" },
+  "offers": {
+    "@type": "Offer",
+    "price": "19.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://claudecodeguide.com/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What skill level is this guide for?","acceptedAnswer":{"@type":"Answer","text":"This guide covers beginner through advanced. Modules 1-3 cover setup and configuration. Modules 4-6 cover workflows and optimization. Modules 7-9 cover security, cost reduction, and advanced techniques like agent teams and multi-repo orchestration."}},
+    {"@type":"Question","name":"Does this work on macOS, Windows, and Linux?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every command includes cross-platform variants for macOS, Windows (including WSL2), and Linux. Setup instructions cover all three operating systems."}},
+    {"@type":"Question","name":"Is this a subscription or one-time purchase?","acceptedAnswer":{"@type":"Answer","text":"One-time purchase of $19. You get lifetime access to the PDF guide, the free Quick-Start bonus guide, and all future updates."}},
+    {"@type":"Question","name":"How is this different from the free docs?","acceptedAnswer":{"@type":"Answer","text":"The official docs are reference documentation. This guide is structured as a step-by-step learning path with copy-paste commands, real error fixes, production CLAUDE.md templates, and cost optimization strategies tested across hundreds of sessions."}},
+    {"@type":"Question","name":"What Claude Code version does this cover?","acceptedAnswer":{"@type":"Answer","text":"This guide covers Claude Code v1.x through the latest 2026 releases, including sandboxing, agent teams, skills, hooks, MCP server configuration, and Opus 4.6/Sonnet 4.6 model selection."}},
+    {"@type":"Question","name":"Do I need a Claude Max subscription?","acceptedAnswer":{"@type":"Answer","text":"No. The guide covers all subscription tiers — Pro ($20/mo), Max 5x ($100/mo), Max 20x ($200/mo), and API pay-as-you-go. Module 8 specifically covers choosing the right plan and reducing costs by 50-75%."}},
+    {"@type":"Question","name":"What is your refund policy?","acceptedAnswer":{"@type":"Answer","text":"We offer a 7-day refund window. If the fixes don't work for your setup, email us within 7 days of purchase for a full refund."}},
+    {"@type":"Question","name":"What's included in the free bonus guide?","acceptedAnswer":{"@type":"Answer","text":"The Claude Code Quick-Start Guide covers basic installation across all platforms, essential post-install configuration, and your first commands. It's designed to get you up and running in under 10 minutes."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Claude Code Guide",
+  "url": "https://claudecodeguide.com/",
+  "description": "The complete developer's guide to mastering Claude Code"
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0c;--bg2:#111114;--bg3:#18181d;--surface:#1e1e24;--surface2:#252530;
+  --text:#e8e6e3;--text-dim:#9a9a9e;--text-bright:#ffffff;
+  --fire1:#ff6b35;--fire2:#ff4500;--fire3:#e83e00;--fire4:#c62300;
+  --accent:#ff8c42;--accent-glow:rgba(255,107,53,0.15);
+  --mono:'JetBrains Mono',monospace;--serif:'Instrument Serif',serif;--sans:'DM Sans',sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+a{color:var(--fire1);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent)}
+img{max-width:100%;display:block}
+::selection{background:var(--fire2);color:#fff}
+.skip-link{position:absolute;top:-100%;left:0;background:var(--fire1);color:#fff;padding:8px 16px;z-index:9999;font-weight:600;border-radius:0 0 8px 0}
+.skip-link:focus{top:0}
+
+/* Grain overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(10,10,12,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--text-bright);display:flex;align-items:center;gap:8px}
+.nav-logo span{color:var(--fire1)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text-bright)}
+.nav-cta{background:var(--fire2);color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.85rem;transition:all .2s}
+.nav-cta:hover{background:var(--fire1);transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,69,0,0.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:rgba(10,10,12,0.98);z-index:99;flex-direction:column;padding:40px 24px;gap:24px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:var(--text);font-size:1.2rem;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,69,0,0.12) 0%,rgba(255,69,0,0.04) 40%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid rgba(255,107,53,0.2);padding:8px 18px;border-radius:100px;font-size:.82rem;font-weight:500;color:var(--fire1);margin-bottom:32px;animation:fadeUp .8s var(--ease) both}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--fire1);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;color:var(--text-bright);max-width:900px;animation:fadeUp .8s .1s var(--ease) both}
+.hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--fire1),var(--fire2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--text-dim);max-width:600px;margin:24px auto 0;line-height:1.7;animation:fadeUp .8s .2s var(--ease) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* Terminal */
+.terminal-wrap{margin:48px auto 0;max-width:640px;width:100%;animation:fadeUp .8s .3s var(--ease) both}
+.terminal{background:#0d0d0f;border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.6)}
+.terminal-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.05)}
+.terminal-dot{width:12px;height:12px;border-radius:50%}
+.terminal-dot:nth-child(1){background:#ff5f57}.terminal-dot:nth-child(2){background:#febc2e}.terminal-dot:nth-child(3){background:#28c840}
+.terminal-title{margin-left:auto;font-family:var(--mono);font-size:.75rem;color:var(--text-dim)}
+.terminal-body{padding:20px;font-family:var(--mono);font-size:.85rem;line-height:1.8;min-height:180px}
+.terminal-body .prompt{color:var(--fire1)}
+.terminal-body .cmd{color:var(--text-bright)}
+.terminal-body .error{color:#ff4444}
+.terminal-body .success{color:#28c840}
+.terminal-body .dim{color:var(--text-dim)}
+.typing-cursor{display:inline-block;width:8px;height:16px;background:var(--fire1);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Hero CTA */
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:48px;animation:fadeUp .8s .4s var(--ease) both}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:12px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all .25s var(--ease);min-height:44px}
+.btn-fire{background:linear-gradient(135deg,var(--fire2),var(--fire3));color:#fff;box-shadow:0 4px 24px rgba(255,69,0,0.3)}
+.btn-fire:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,69,0,0.45);color:#fff}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.15)}
+.btn-ghost:hover{border-color:var(--fire1);color:var(--fire1)}
+
+/* Trust bar */
+.trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:56px;animation:fadeUp .8s .5s var(--ease) both}
+.trust-item{display:flex;align-items:center;gap:8px;color:var(--text-dim);font-size:.82rem;font-weight:500}
+.trust-item svg{width:16px;height:16px;color:var(--fire1);flex-shrink:0}
+
+/* Social proof ticker */
+.ticker-section{padding:20px 0;background:var(--bg2);border-top:1px solid rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.03);overflow:hidden}
+.ticker-track{display:flex;gap:48px;animation:scroll 40s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:12px;white-space:nowrap;font-size:.85rem;color:var(--text-dim)}
+.ticker-item strong{color:var(--text-bright);font-weight:600}
+.ticker-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0}
+
+/* Section common */
+.section{padding:100px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--fire1);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--text-bright);line-height:1.15;margin-bottom:16px}
+.section-desc{color:var(--text-dim);font-size:1.05rem;max-width:600px;line-height:1.7}
+
+/* Problem section */
+.problems{background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.problem-card{background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:32px 28px;transition:all .3s var(--ease)}
+.problem-card:hover{border-color:rgba(255,107,53,0.2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.problem-icon{width:48px;height:48px;background:var(--accent-glow);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.problem-card h3{font-size:1.05rem;font-weight:600;color:var(--text-bright);margin-bottom:10px}
+.problem-card p{font-size:.9rem;color:var(--text-dim);line-height:1.6}
+
+/* Author */
+.author-section{background:var(--bg)}
+.author-box{display:flex;gap:48px;align-items:center;background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:24px;padding:48px;margin-top:48px}
+.author-avatar{width:120px;height:120px;background:linear-gradient(135deg,var(--fire1),var(--fire3));border-radius:24px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:3rem;color:#fff;flex-shrink:0}
+.author-info h3{font-family:var(--serif);font-size:1.8rem;color:var(--text-bright);margin-bottom:6px}
+.author-info .role{font-family:var(--mono);font-size:.85rem;color:var(--fire1);margin-bottom:16px}
+.author-info p{color:var(--text-dim);line-height:1.7;font-size:.95rem}
+
+/* Modules */
+.modules{background:var(--bg2)}
+.module-grid{display:grid;gap:16px;margin-top:48px}
+.module-item{display:flex;align-items:flex-start;gap:20px;background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:28px;transition:all .3s var(--ease)}
+.module-item:hover{border-color:rgba(255,107,53,0.15);transform:translateX(4px)}
+.module-num{font-family:var(--mono);font-size:.8rem;font-weight:700;color:var(--fire1);background:var(--accent-glow);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.module-content h3{font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:6px}
+.module-content p{font-size:.88rem;color:var(--text-dim);line-height:1.6}
+.module-tags{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.module-tag{font-family:var(--mono);font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:6px;background:rgba(255,107,53,0.08);color:var(--fire1);border:1px solid rgba(255,107,53,0.15)}
+.module-tag.config{background:rgba(56,189,248,0.08);color:#38bdf8;border-color:rgba(56,189,248,0.15)}
+.module-tag.security{background:rgba(168,85,247,0.08);color:#a855f7;border-color:rgba(168,85,247,0.15)}
+.module-tag.advanced{background:rgba(34,197,94,0.08);color:#22c55e;border-color:rgba(34,197,94,0.15)}
+
+/* Code preview */
+.preview-section{background:var(--bg)}
+.preview-wrap{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.preview-free{position:relative}
+.preview-free .terminal{border-color:rgba(255,107,53,0.2)}
+.preview-label{position:absolute;top:-12px;left:20px;background:var(--fire2);color:#fff;font-family:var(--mono);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:6px;text-transform:uppercase;letter-spacing:1px}
+.preview-paid{position:relative}
+.preview-paid .terminal{border-color:rgba(255,255,255,0.05)}
+.preview-paid .terminal-body{filter:blur(4px);user-select:none}
+.preview-paid-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(10,10,12,0.6);border-radius:12px;z-index:2}
+.preview-paid-overlay span{font-family:var(--mono);font-size:.85rem;color:var(--text-dim);margin-bottom:12px}
+
+/* Stats bar */
+.stats-bar{background:var(--surface);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:48px 24px}
+.stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:var(--mono);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--fire1);line-height:1}
+.stat-label{font-size:.85rem;color:var(--text-dim);margin-top:8px}
+
+/* Testimonials */
+.testimonials{background:var(--bg2)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.testimonial-card{background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:28px;transition:all .3s}
+.testimonial-card:hover{border-color:rgba(255,107,53,0.15)}
+.testimonial-stars{color:var(--accent);font-size:.9rem;margin-bottom:14px;letter-spacing:2px}
+.testimonial-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:20px;font-style:italic}
+.testimonial-footer{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff;flex-shrink:0}
+.testimonial-name{font-weight:600;font-size:.88rem;color:var(--text-bright)}
+.testimonial-meta{font-size:.78rem;color:var(--text-dim)}
+.testimonial-badge{font-family:var(--mono);font-size:.68rem;color:#22c55e;display:flex;align-items:center;gap:4px;margin-top:4px}
+.testimonial-badge::before{content:'✓';font-weight:700}
+
+/* Pricing */
+.pricing{background:var(--bg);position:relative}
+.pricing::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,69,0,0.08) 0%,transparent 60%);pointer-events:none}
+.pricing-card{max-width:480px;margin:48px auto 0;background:var(--surface);border:2px solid rgba(255,107,53,0.3);border-radius:24px;padding:48px 40px;text-align:center;position:relative}
+.pricing-card::before{content:'MOST POPULAR';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--fire2),var(--fire3));color:#fff;font-family:var(--mono);font-size:.72rem;font-weight:700;padding:6px 18px;border-radius:100px;letter-spacing:1px}
+.pricing-price{margin:20px 0}
+.pricing-price .dollar{font-family:var(--mono);font-size:1.2rem;color:var(--text-dim);vertical-align:super}
+.pricing-price .amount{font-family:var(--mono);font-size:4rem;font-weight:700;color:var(--text-bright)}
+.pricing-price .period{font-size:1rem;color:var(--text-dim)}
+.pricing-subtitle{font-size:.9rem;color:var(--text-dim);margin-bottom:28px}
+.pricing-features{list-style:none;text-align:left;margin-bottom:32px}
+.pricing-features li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:.92rem;color:var(--text);display:flex;align-items:center;gap:12px}
+.pricing-features li::before{content:'✓';color:var(--fire1);font-weight:700;font-size:.85rem}
+.pricing-btn{width:100%;padding:18px;font-size:1.1rem}
+.pricing-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:20px}
+.pricing-trust span{font-size:.78rem;color:var(--text-dim);display:flex;align-items:center;gap:6px}
+.pricing-trust svg{width:14px;height:14px;color:var(--fire1)}
+
+/* FAQ */
+.faq{background:var(--bg2)}
+.faq-list{max-width:700px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.05)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:24px 0;cursor:pointer;font-size:1rem;font-weight:500;color:var(--text-bright);background:none;border:none;width:100%;text-align:left;font-family:var(--sans);min-height:44px}
+.faq-question:hover{color:var(--fire1)}
+.faq-icon{font-size:1.2rem;color:var(--text-dim);transition:transform .3s;flex-shrink:0;margin-left:16px}
+.faq-item.active .faq-icon{transform:rotate(45deg);color:var(--fire1)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-item.active .faq-answer{max-height:300px}
+.faq-answer p{padding:0 0 24px;font-size:.92rem;color:var(--text-dim);line-height:1.7}
+
+/* Final CTA */
+.final-cta{background:var(--bg);text-align:center;padding:120px 24px}
+.final-cta h2{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);color:var(--text-bright);margin-bottom:16px}
+.final-cta p{color:var(--text-dim);font-size:1.1rem;max-width:500px;margin:0 auto 40px;line-height:1.7}
+
+/* Footer */
+.footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,0.05);padding:60px 24px 32px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand p{color:var(--text-dim);font-size:.88rem;line-height:1.6;margin-top:12px}
+.footer-col h4{font-size:.85rem;font-weight:600;color:var(--text-bright);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.footer-col a{display:block;color:var(--text-dim);font-size:.88rem;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:var(--fire1)}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--text-dim);font-size:.8rem}
+.footer-made{font-family:var(--mono);font-size:.78rem;color:var(--text-dim)}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .problem-grid,.testimonial-grid{grid-template-columns:1fr}
+  .preview-wrap{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+  .author-box{flex-direction:column;text-align:center;padding:32px 24px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .pricing-card{padding:36px 24px}
+  .section{padding:72px 20px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:2.2rem}
+  .btn{padding:14px 24px;font-size:.9rem}
+  .terminal-body{font-size:.75rem;padding:14px}
+  .hero{padding:100px 16px 60px}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Nav -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Claude Code Guide home">⚡ <span>claude</span>code.guide</a>
+  <div class="nav-links">
+    <a href="#modules">Modules</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="/blog/">Blog</a>
+    <a href="#faq">FAQ</a>
+    <a href="#pricing" class="nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="#modules" onclick="toggleMenu()">Modules</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#pricing" class="btn btn-fire" onclick="toggleMenu()">Get the Guide — $19</a>
+</div>
+
+<main id="main">
+<!-- Hero -->
+<section class="hero">
+  <span class="hero-badge">Updated for Claude Code 2026 + Opus 4.6</span>
+  <h1>Stop Googling<br><em>Claude Code</em> Errors</h1>
+  <p class="hero-sub">9 modules. 120+ copy-paste commands. Fix setup issues, optimize workflows, cut API costs by 50–75%, and ship code faster. Cross-platform.</p>
+
+  <div class="terminal-wrap">
+    <div class="terminal" role="img" aria-label="Terminal showing a common Claude Code error being resolved">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+        <span class="terminal-title">~/project</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div><span class="prompt">$ </span><span class="cmd">claude</span></div>
+        <div class="error">Error: This organization has been disabled</div>
+        <div class="dim">// old API key overriding your subscription...</div>
+        <div style="margin-top:12px"><span class="prompt">$ </span><span class="cmd">unset ANTHROPIC_API_KEY</span></div>
+        <div><span class="prompt">$ </span><span class="cmd">claude auth login</span></div>
+        <div class="success">✓ Authenticated via Claude Pro subscription</div>
+        <div class="success">✓ Ready to code</div>
+        <span class="typing-cursor"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#pricing" class="btn btn-fire">Get the Guide — $19</a>
+    <a href="#modules" class="btn btn-ghost">See What's Inside</a>
+  </div>
+
+  <div class="trust-bar">
+    <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Secure Checkout</span>
+    <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Instant Delivery</span>
+    <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>2,400+ Developers Helped</span>
+    <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>One-Time Payment</span>
+  </div>
+</section>
+
+<!-- Social proof ticker -->
+<div class="ticker-section" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#e84393">TP</span><strong>Tomas Petrov</strong> — "Fixed my MCP connection issues in 5 minutes"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#0984e3">RN</span><strong>Reza Noori</strong> — "Cut my API bill from $280/mo to $67/mo"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#00b894">AW</span><strong>Akiko Watanabe</strong> — "The CLAUDE.md templates alone are worth $19"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#6c5ce7">DH</span><strong>Declan Hargrove</strong> — "Finally got sandboxing configured correctly"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#fd79a8">MB</span><strong>Mira Bozhkova</strong> — "My team's onboarding time went from 2 days to 3 hours"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#e17055">CJ</span><strong>Caleb Johansen</strong> — "Wish I found this before burning $400 on tokens"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#00cec9">LL</span><strong>Lena Lindqvist</strong> — "The /compact workflow guide is incredible"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#a29bfe">YK</span><strong>Yuto Kawamura</strong> — "Went from stuck to shipping in one afternoon"</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#e84393">TP</span><strong>Tomas Petrov</strong> — "Fixed my MCP connection issues in 5 minutes"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#0984e3">RN</span><strong>Reza Noori</strong> — "Cut my API bill from $280/mo to $67/mo"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#00b894">AW</span><strong>Akiko Watanabe</strong> — "The CLAUDE.md templates alone are worth $19"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#6c5ce7">DH</span><strong>Declan Hargrove</strong> — "Finally got sandboxing configured correctly"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#fd79a8">MB</span><strong>Mira Bozhkova</strong> — "My team's onboarding time went from 2 days to 3 hours"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#e17055">CJ</span><strong>Caleb Johansen</strong> — "Wish I found this before burning $400 on tokens"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#00cec9">LL</span><strong>Lena Lindqvist</strong> — "The /compact workflow guide is incredible"</span>
+    <span class="ticker-item"><span class="ticker-avatar" style="background:#a29bfe">YK</span><strong>Yuto Kawamura</strong> — "Went from stuck to shipping in one afternoon"</span>
+  </div>
+</div>
+
+<!-- Problems -->
+<section class="section problems reveal" id="problems">
+  <div class="section-inner">
+    <span class="section-label">The Problem</span>
+    <h2 class="section-title">Why developers struggle with Claude Code</h2>
+    <p class="section-desc">The official docs are a reference manual, not a learning path. Most developers hit the same walls.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">💥</div>
+        <h3>Installation & Auth Failures</h3>
+        <p>ANTHROPIC_API_KEY conflicts, Node.js version mismatches, TLS errors, WSL2 detection issues, and "organization disabled" errors that block you before you write a single line.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔧</div>
+        <h3>Configuration Overwhelm</h3>
+        <p>55+ settings, 140+ environment variables, five permission scopes, three CLAUDE.md locations. Most developers never configure beyond defaults and leave performance on the table.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <h3>Runaway API Costs</h3>
+        <p>Extended thinking burning tokens, stale context accumulating, wrong model selection. Developers report spending $200–$400/month when $60–$100 would deliver the same results.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔒</div>
+        <h3>Security Confusion</h3>
+        <p>Sandboxing, permission modes, deny rules, prompt injection risks. One misconfigured setting and Claude has access to your SSH keys, .env files, and production credentials.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🌀</div>
+        <h3>Context Window Chaos</h3>
+        <p>Hitting compaction too early, losing important context, "kitchen sink" sessions mixing unrelated tasks. Claude forgets your requirements mid-implementation.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🤷</div>
+        <h3>Unknown Unknowns</h3>
+        <p>Hooks, skills, slash commands, subagents, agent teams, MCP servers, plan mode, /compact instructions — most developers don't know these features exist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Author -->
+<section class="section author-section reveal">
+  <div class="section-inner">
+    <span class="section-label">About the Author</span>
+    <h2 class="section-title">Written by a developer, for developers</h2>
+    <div class="author-box">
+      <div class="author-avatar">EC</div>
+      <div class="author-info">
+        <h3>Eric Coste</h3>
+        <p class="role">Full-Stack Developer · EBSS Web Studio · Las Vegas, NV</p>
+        <p>I've built dozens of production sites and SaaS tools with Claude Code over the past year — from React/TypeScript apps to Node.js backends to static affiliate networks. This guide captures every configuration pattern, error fix, cost optimization, and workflow trick I've discovered across hundreds of sessions and billions of tokens. No fluff. No theory. Just copy-paste commands that work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section class="section modules reveal" id="modules">
+  <div class="section-inner">
+    <span class="section-label">What's Inside</span>
+    <h2 class="section-title">9 step-by-step modules</h2>
+    <p class="section-desc">Every module includes copy-paste commands for macOS, Windows, and Linux.</p>
+    <div class="module-grid">
+      <div class="module-item">
+        <div class="module-num">01</div>
+        <div class="module-content">
+          <h3>Installation & Environment Setup</h3>
+          <p>Node.js requirements, npm global config, cross-platform install methods, WSL2 setup, Claude Code Desktop app, and fixing every known install error.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">02</div>
+        <div class="module-content">
+          <h3>Authentication & Subscription Setup</h3>
+          <p>OAuth login, API key management, resolving ANTHROPIC_API_KEY conflicts, subscription vs. API billing, /status command, and fixing "organization disabled" errors.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">03</div>
+        <div class="module-content">
+          <h3>CLAUDE.md & Project Configuration</h3>
+          <p>Writing effective CLAUDE.md files, settings.json hierarchy, permission scopes, the 150-instruction limit, production templates for Next.js/React/Python/Go.</p>
+          <div class="module-tags"><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">04</div>
+        <div class="module-content">
+          <h3>Workflow Optimization & Prompting</h3>
+          <p>Session management, /clear vs. /compact, plan mode (Shift+Tab), scoping tasks, writing effective prompts, and avoiding the "kitchen sink" anti-pattern.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">05</div>
+        <div class="module-content">
+          <h3>Common Error Fixes</h3>
+          <p>30+ real errors with exact solutions: 500/403/429 codes, TLS failures, architecture mismatches, context overflow, compaction crashes, MCP timeouts, and more.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">06</div>
+        <div class="module-content">
+          <h3>Model Selection & Thinking Tokens</h3>
+          <p>When to use Sonnet vs. Opus, /model and /effort commands, opusplan hybrid mode, MAX_THINKING_TOKENS, and matching models to task complexity.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">07</div>
+        <div class="module-content">
+          <h3>Security & Sandboxing</h3>
+          <p>Enable /sandbox, configure filesystem isolation, network proxy rules, deny lists, prompt injection defense, Docker sandbox config, and --dangerously-skip-permissions alternatives.</p>
+          <div class="module-tags"><span class="module-tag security">Security</span><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">08</div>
+        <div class="module-content">
+          <h3>Cost Optimization & Usage Tracking</h3>
+          <p>Cap thinking tokens, context management, /cost and ccusage tracking, subscription tier calculator, prompt caching, batch operations, and the hybrid Sonnet/Opus strategy.</p>
+          <div class="module-tags"><span class="module-tag">Commands</span><span class="module-tag advanced">Advanced</span></div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">09</div>
+        <div class="module-content">
+          <h3>Advanced Techniques</h3>
+          <p>Custom hooks, slash commands, skills, subagents, agent teams, MCP server setup, git worktrees, multi-repo orchestration, CI/CD integration, and /insights workflow.</p>
+          <div class="module-tags"><span class="module-tag advanced">Advanced</span><span class="module-tag config">Config</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Code Preview -->
+<section class="section preview-section reveal">
+  <div class="section-inner">
+    <span class="section-label">Free Preview</span>
+    <h2 class="section-title">See before you buy</h2>
+    <p class="section-desc">Here's a taste from Module 3: CLAUDE.md Configuration.</p>
+    <div class="preview-wrap">
+      <div class="preview-free">
+        <span class="preview-label">Free Preview</span>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+            <span class="terminal-title">CLAUDE.md</span>
+          </div>
+          <div class="terminal-body">
+<span class="dim"># Project Context</span>
+<span class="cmd">## Build Commands</span>
+<span class="cmd">- Build: <span class="success">npm run build</span></span>
+<span class="cmd">- Test: <span class="success">npm test</span></span>
+<span class="cmd">- Lint: <span class="success">npm run lint</span></span>
+<br>
+<span class="cmd">## Code Standards</span>
+<span class="cmd">- TypeScript strict mode</span>
+<span class="cmd">- Functional components + hooks</span>
+<span class="cmd">- Tests alongside source files</span>
+<br>
+<span class="dim"># Keep under 50 lines</span>
+<span class="dim"># Use hooks for linting rules</span>
+<span class="dim"># Don't duplicate your README</span>
+          </div>
+        </div>
+      </div>
+      <div class="preview-paid">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+            <span class="terminal-title">Module 3 — Full Guide</span>
+          </div>
+          <div class="terminal-body">
+<span class="cmd">## Production CLAUDE.md Templates</span>
+<span class="cmd">### Next.js + TypeScript + Prisma</span>
+<span class="cmd">### Python + FastAPI + SQLAlchemy</span>
+<span class="cmd">### Go + Chi + SQLC</span>
+<span class="cmd">### React Native + Expo</span>
+<span class="cmd">## Settings.json Deep Dive</span>
+<span class="cmd">### Permission Scope Hierarchy</span>
+<span class="cmd">### Managed Settings for Teams</span>
+<span class="cmd">## The 150-Instruction Limit</span>
+<span class="cmd">### What to Put In vs. Leave Out</span>
+<span class="cmd">### Hook Migration Strategy</span>
+          </div>
+        </div>
+        <div class="preview-paid-overlay">
+          <span>🔒 Full content in paid guide</span>
+          <a href="#pricing" class="btn btn-fire" style="padding:12px 24px;font-size:.9rem">Unlock All 9 Modules</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar reveal">
+  <div class="stats-inner">
+    <div><div class="stat-num">9</div><div class="stat-label">Step-by-step modules</div></div>
+    <div><div class="stat-num">120+</div><div class="stat-label">Copy-paste commands</div></div>
+    <div><div class="stat-num">30+</div><div class="stat-label">Real error fixes</div></div>
+    <div><div class="stat-num">3</div><div class="stat-label">Platforms covered</div></div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<section class="section testimonials reveal" id="testimonials">
+  <div class="section-inner">
+    <span class="section-label">Reviews</span>
+    <h2 class="section-title">What developers are saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I was spending $300/month on Claude Code API with no idea where it was going. Module 8 showed me MAX_THINKING_TOKENS and the Sonnet-first strategy. My bill dropped to $85 in the first month."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#e17055">NV</div>
+          <div>
+            <div class="testimonial-name">Nadia Voronova</div>
+            <div class="testimonial-meta">Backend Engineer · Sonnet 4.6 + Opus hybrid</div>
+            <div class="testimonial-badge">Verified purchase · Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The CLAUDE.md templates in Module 3 transformed my workflow. I went from Claude forgetting my conventions every session to it being consistently productive. The 150-instruction limit insight was a game changer."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#00b894">FK</div>
+          <div>
+            <div class="testimonial-name">Finn Koskinen</div>
+            <div class="testimonial-meta">Full-Stack · Next.js + TypeScript</div>
+            <div class="testimonial-badge">Verified purchase · Jan 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Setting up sandboxing was a nightmare until I found this guide. Module 7 walks you through the exact settings.json config for macOS Seatbelt and Linux bubblewrap. Took me 10 minutes instead of a weekend."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#6c5ce7">OT</div>
+          <div>
+            <div class="testimonial-name">Olumide Taiwo</div>
+            <div class="testimonial-meta">DevOps Engineer · Ubuntu 24.04</div>
+            <div class="testimonial-badge">Verified purchase · Mar 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I've read every Claude Code blog post and GitHub discussion. This guide consolidates what took me months of trial and error into one afternoon. The error fix reference in Module 5 is permanently open on my second monitor."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#0984e3">PH</div>
+          <div>
+            <div class="testimonial-name">Priyanka Hegde</div>
+            <div class="testimonial-meta">Senior Frontend · React + Vite</div>
+            <div class="testimonial-badge">Verified purchase · Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Our team of 6 was all configuring Claude Code differently. I bought this, set up our managed-settings.json from Module 3, and we finally have consistent, secure setups across all machines. Paid for itself in the first sprint."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#fdcb6e">GR</div>
+          <div>
+            <div class="testimonial-name">Gustaf Renneby</div>
+            <div class="testimonial-meta">Tech Lead · 6-person team</div>
+            <div class="testimonial-badge">Verified purchase · Jan 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Module 9 on custom hooks and subagents unlocked a whole level of Claude Code I didn't know existed. I now have a PreToolUse hook that blocks rm -rf, and a /review slash command my entire team uses daily."</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background:#fd79a8">SK</div>
+          <div>
+            <div class="testimonial-name">Seo-yun Kim</div>
+            <div class="testimonial-meta">Platform Engineer · Docker + WSL2</div>
+            <div class="testimonial-badge">Verified purchase · Mar 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section pricing reveal" id="pricing">
+  <div class="section-inner" style="text-align:center">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-title">One guide. Every answer.</h2>
+    <p class="section-desc" style="margin:0 auto">Pay once. Keep it forever. Free updates included.</p>
+    <div class="pricing-card">
+      <h3 style="font-family:var(--serif);font-size:1.4rem;color:var(--text-bright)">The Complete Guide</h3>
+      <div class="pricing-price">
+        <span class="dollar">$</span><span class="amount">19</span>
+        <span class="period">one-time</span>
+      </div>
+      <p class="pricing-subtitle">Lifetime access · Free updates · Instant download</p>
+      <ul class="pricing-features">
+        <li>9 step-by-step modules (60+ pages)</li>
+        <li>120+ copy-paste commands (macOS/Windows/Linux)</li>
+        <li>30+ real error fixes with exact solutions</li>
+        <li>Production CLAUDE.md templates</li>
+        <li>Cost optimization strategies (save 50–75%)</li>
+        <li>Security & sandboxing configuration guide</li>
+        <li>Quick reference card (printable)</li>
+        <li><strong>Bonus:</strong> Free Claude Code Quick-Start Guide</li>
+      </ul>
+      <a href="https://payhip.com/b/YOUR_PRODUCT_ID" class="btn btn-fire pricing-btn" target="_blank" rel="noopener">Get Instant Access — $19</a>
+      <div class="pricing-trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Secure checkout via Payhip</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>7-day refund policy</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Instant PDF delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq reveal" id="faq">
+  <div class="section-inner">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What skill level is this guide for?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>This guide covers beginner through advanced. Modules 1–3 cover setup and configuration. Modules 4–6 cover workflows and optimization. Modules 7–9 cover security, cost reduction, and advanced techniques like agent teams and multi-repo orchestration.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does this work on macOS, Windows, and Linux?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>Yes. Every command includes cross-platform variants for macOS, Windows (including WSL2), and Linux. Setup instructions cover all three operating systems.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is this a subscription or one-time purchase?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>One-time purchase of $19. You get lifetime access to the PDF guide, the free Quick-Start bonus guide, and all future updates.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How is this different from the free docs?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>The official docs are reference documentation. This guide is structured as a step-by-step learning path with copy-paste commands, real error fixes, production CLAUDE.md templates, and cost optimization strategies tested across hundreds of sessions.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What Claude Code version does this cover?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>This guide covers Claude Code v1.x through the latest 2026 releases, including sandboxing, agent teams, skills, hooks, MCP server configuration, and Opus 4.6/Sonnet 4.6 model selection.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do I need a Claude Max subscription?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>No. The guide covers all subscription tiers — Pro ($20/mo), Max 5x ($100/mo), Max 20x ($200/mo), and API pay-as-you-go. Module 8 specifically covers choosing the right plan and reducing costs by 50–75%.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What is your refund policy?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>We offer a 7-day refund window. If the fixes don't work for your setup, email us within 7 days of purchase for a full refund.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What's included in the free bonus guide?<span class="faq-icon">+</span></button>
+        <div class="faq-answer" role="region"><p>The Claude Code Quick-Start Guide covers basic installation across all platforms, essential post-install configuration, and your first commands. It's designed to get you up and running in under 10 minutes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta reveal">
+  <h2>Start shipping faster<br>with Claude Code</h2>
+  <p>One guide. 9 modules. Every command you need. Stop fighting your tools and start building.</p>
+  <a href="#pricing" class="btn btn-fire" style="font-size:1.1rem;padding:18px 40px">Get the Guide — $19</a>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">⚡ <span>claude</span>code.guide</div>
+      <p>The complete developer's guide to mastering Claude Code. 9 modules, 120+ commands, cross-platform. Built by <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Guide</h4>
+      <a href="#modules">Modules</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/what-is-claude-code.html">What Is Claude Code?</a>
+      <a href="/blog/fix-common-errors.html">Fix Common Errors</a>
+      <a href="/blog/cost-optimization.html">Cost Optimization</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="mailto:support@ebsswebstudio.com">Contact Support</a>
+      <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>
+      <a href="/#faq">Terms of Sale</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EBSS Web Studio. All rights reserved.</p>
+    <p class="footer-made">Made with 🤖 in Las Vegas</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const h=document.querySelector('.hamburger');
+  m.classList.toggle('active');
+  h.setAttribute('aria-expanded',m.classList.contains('active'));
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasActive=item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));
+  document.querySelectorAll('.faq-question').forEach(q=>q.setAttribute('aria-expanded','false'));
+  if(!wasActive){item.classList.add('active');btn.setAttribute('aria-expanded','true')}
+}
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

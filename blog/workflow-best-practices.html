@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Best Practices for Claude Code Workflows & Prompting (2026)</title>
+<meta name="description" content="Learn session management, effective prompting, plan mode, context management, and productivity patterns that top Claude Code developers use daily.">
+<meta name="keywords" content="Claude Code best practices, Claude Code workflow, Claude Code prompting, Claude Code tips, Claude Code productivity, Claude Code session management">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/blog/workflow-best-practices.html">
+<meta property="og:title" content="Best Practices for Claude Code Workflows & Prompting (2026)">
+<meta property="og:description" content="Learn session management, effective prompting, plan mode, context management, and productivity patterns that top Claude Code developers use daily.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://claudecodeguide.com/blog/workflow-best-practices.html">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Practices for Claude Code Workflows & Prompting (2026)">
+<meta name="twitter:description" content="Learn session management, effective prompting, plan mode, context management, and productivity patterns that top Claude Code developers use daily.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Best Practices for Claude Code Workflows & Prompting (2026)", "description": "Learn session management, effective prompting, plan mode, context management, and productivity patterns that top Claude Code developers use daily.", "author": {"@type": "Person", "name": "Eric Coste"}, "publisher": {"@type": "Organization", "name": "EBSS Web Studio"}, "datePublished": "2026-03-01", "dateModified": "2026-03-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the best way to start a Claude Code session?", "acceptedAnswer": {"@type": "Answer", "text": "Start with a clear, specific prompt that names files and states the desired outcome. Run /init if you don't have a CLAUDE.md yet. Scope each session to one task or feature."}}, {"@type": "Question", "name": "Should I use plan mode or auto mode?", "acceptedAnswer": {"@type": "Answer", "text": "Use plan mode (Shift+Tab twice) before expensive operations to review Claude's approach first. Use auto mode for well-defined tasks where you trust Claude to execute correctly."}}, {"@type": "Question", "name": "How often should I use /compact?", "acceptedAnswer": {"@type": "Answer", "text": "Use /compact when you notice Claude losing context or producing lower quality responses. Don't wait for the 95% auto-compaction \u2014 manual compaction lets you specify what to preserve."}}, {"@type": "Question", "name": "What makes a good prompt for Claude Code?", "acceptedAnswer": {"@type": "Answer", "text": "Name specific files, state the desired outcome, include constraints. Bad: 'fix the bug.' Good: 'In src/api/auth.ts, the login function returns 401 when the token is valid. Fix the JWT verification to check the correct issuer field.'"}}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<nav class="blog-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="blog-nav-logo">⚡ <span>claude</span>code.guide</a>
+  <div class="blog-nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/#modules">Modules</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#pricing" class="blog-nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="blog-hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="document.getElementById('bm').classList.toggle('active');this.setAttribute('aria-expanded',document.getElementById('bm').classList.contains('active'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="blog-mobile-menu" id="bm">
+  <a href="/blog/">Blog</a>
+  <a href="/#modules">Modules</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#pricing">Get the Guide — $19</a>
+</div>
+<main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Best Practices for Claude Code Workflows
+</nav>
+<header class="article-header">
+  <h1>Best Practices for Claude Code Workflows & Prompting (2026)</h1>
+  <div class="article-meta">
+    <span>By Eric Coste</span>
+    <time datetime="2026-03-01">March 8, 2026</time>
+    <span>10 min read</span>
+  </div>
+</header>
+<article class="article-body">
+<h2>The Mindset Shift</h2>
+<p>Claude Code isn't a chatbot that answers questions. It's an autonomous agent that reads your codebase, plans implementations, and executes them. This changes how you work: instead of writing code and asking Claude to review it, you describe what you want and Claude figures out how to build it.</p>
+<p>The developers who get the most out of Claude Code treat it like delegating to a skilled junior developer — clear instructions, well-scoped tasks, and verification at the end.</p>
+
+<h2>Session Management</h2>
+<p>The biggest productivity killer is the "kitchen sink" session: you start with one task, ask something unrelated, go back to the first task, and now your context is full of irrelevant information. Claude loses focus and quality drops.</p>
+
+<h3>Rule: One task per session</h3>
+<p>Scope each session to a single feature, bug fix, or task. When you finish, use <code>/clear</code> before starting something new. If you need to come back to a session later, use <code>/rename</code> first, then <code>/resume</code> to pick it up.</p>
+
+<h3>Rule: Clear between unrelated tasks</h3>
+<pre><code># Finished implementing auth? Clear before starting the dashboard.
+/rename auth-implementation
+/clear
+
+# Later, resume if needed:
+/resume auth-implementation</code></pre>
+
+<h2>Writing Effective Prompts</h2>
+<p>Vague prompts produce vague results. Specific prompts with file names, outcome descriptions, and constraints let Claude work efficiently without wasting tokens on exploration.</p>
+
+<h3>Bad prompt patterns</h3>
+<p>"Fix the bug." "Make it better." "Add a feature." "Investigate this." These force Claude to spend tokens reading files and guessing what you want.</p>
+
+<h3>Good prompt patterns</h3>
+<pre><code># Specific, actionable, with constraints:
+"In src/components/UserTable.tsx, add pagination with 
+25 rows per page. Use the existing Pagination component 
+from src/components/ui/. Keep the current sort functionality."
+
+# With verification:
+"Implement the search API endpoint in src/api/search.ts. 
+It should accept a query parameter and return results from
+the products table. Write a test in src/api/__tests__/search.test.ts
+that verifies empty queries return a 400 error."</code></pre>
+
+<h2>Plan Mode</h2>
+<p>Press Shift+Tab twice to enter plan mode before expensive operations. In plan mode, Claude outlines its approach without executing anything. This lets you review the plan, redirect if needed, and avoid wasting tokens on a wrong approach.</p>
+<p>Plan mode is especially valuable when you're asking Claude to refactor, restructure, or implement complex features that touch multiple files.</p>
+
+<h2>Context Management</h2>
+<p>Every message you send, every file Claude reads, and every command it runs adds to the context window. At some point, the context fills up and Claude auto-compacts — which can lose important information.</p>
+
+<h3>Proactive compaction</h3>
+<pre><code># Don't wait for auto-compaction. Control what's preserved:
+/compact Keep the API contract, test results, and current 
+implementation plan. Discard exploration of alternatives.
+
+# Put persistent context in CLAUDE.md, not in conversation
+# CLAUDE.md is loaded fresh every session</code></pre>
+
+<h2>Common Anti-Patterns to Avoid</h2>
+<p><strong>The infinite exploration:</strong> Asking Claude to "investigate" without scoping it. Claude reads hundreds of files, filling the context. Fix: scope investigations narrowly or use subagents.</p>
+<p><strong>Correcting over and over:</strong> Claude does something wrong, you correct it, still wrong, correct again. Context is polluted with failed approaches. Fix: after two failed corrections, <code>/clear</code> and write a better initial prompt.</p>
+<p><strong>The over-stuffed CLAUDE.md:</strong> If CLAUDE.md is over 200 lines, Claude ignores half of it. Fix: keep it under 50 lines. Use hooks for linting rules. Point to docs files for detailed specs.</p>
+
+<h2>Slash Commands Reference</h2>
+<p>These are the commands you'll use most frequently: <code>/clear</code> wipes the session, <code>/compact</code> compresses context, <code>/cost</code> shows token usage, <code>/model</code> switches models, <code>/status</code> checks auth and connection, <code>/sandbox</code> configures sandboxing, <code>/init</code> generates a starter CLAUDE.md, and <code>/help</code> lists all available commands including your custom ones.</p>
+
+<div class="cta-box">
+  <h3>Master Claude Code in One Afternoon</h3>
+  <p>9 modules, 120+ commands, 30+ error fixes. Cross-platform. One-time $19.</p>
+  <a href="/#pricing" class="btn">Get Instant Access — $19</a>
+  <p class="bonus">Bonus: Free Claude Code Quick-Start Guide included with purchase</p>
+</div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What's the best way to start a Claude Code session?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Start with a clear, specific prompt that names files and states the desired outcome. Run /init if you don't have a CLAUDE.md yet. Scope each session to one task or feature.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Should I use plan mode or auto mode?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Use plan mode (Shift+Tab twice) before expensive operations to review Claude's approach first. Use auto mode for well-defined tasks where you trust Claude to execute correctly.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">How often should I use /compact?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Use /compact when you notice Claude losing context or producing lower quality responses. Don't wait for the 95% auto-compaction — manual compaction lets you specify what to preserve.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What makes a good prompt for Claude Code?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Name specific files, state the desired outcome, include constraints. Bad: 'fix the bug.' Good: 'In src/api/auth.ts, the login function returns 401 when the token is valid. Fix the JWT verification to check the correct issuer field.'</p>
+</div>
+
+</article>
+<section class="related-posts"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-claude-code.html" class="related-card"><h3>What Is Claude Code?</h3><p>Complete beginner's guide to Anthropic's AI coding tool.</p></a><a href="/blog/hosting-setup.html" class="related-card"><h3>Best Hosting & Setup</h3><p>Local vs cloud vs Codespaces for Claude Code.</p></a><a href="/blog/fix-common-errors.html" class="related-card"><h3>Fix Common Errors</h3><p>30+ real error fixes with copy-paste solutions.</p></a></div></section>
+</main>
+<footer class="blog-footer" role="contentinfo">
+  <p>&copy; 2026 <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>. All rights reserved. Made with 🤖 in Las Vegas</p>
+</footer>
+</body>
+</html>

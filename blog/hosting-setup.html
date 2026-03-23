@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Best Claude Code Hosting & Setup: Local vs Cloud vs Codespaces (2026)</title>
+<meta name="description" content="Compare local, cloud, and Codespaces setups for Claude Code. Learn which environment gives you the best performance, security, and cost efficiency.">
+<meta name="keywords" content="Claude Code setup, Claude Code hosting, Claude Code local, Claude Code cloud, Claude Code Codespaces, Claude Code Docker, Claude Code WSL2">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/blog/hosting-setup.html">
+<meta property="og:title" content="Best Claude Code Hosting & Setup: Local vs Cloud vs Codespaces (2026)">
+<meta property="og:description" content="Compare local, cloud, and Codespaces setups for Claude Code. Learn which environment gives you the best performance, security, and cost efficiency.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://claudecodeguide.com/blog/hosting-setup.html">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Claude Code Hosting & Setup: Local vs Cloud vs Codespaces (2026)">
+<meta name="twitter:description" content="Compare local, cloud, and Codespaces setups for Claude Code. Learn which environment gives you the best performance, security, and cost efficiency.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Best Claude Code Hosting & Setup: Local vs Cloud vs Codespaces (2026)", "description": "Compare local, cloud, and Codespaces setups for Claude Code. Learn which environment gives you the best performance, security, and cost efficiency.", "author": {"@type": "Person", "name": "Eric Coste"}, "publisher": {"@type": "Organization", "name": "EBSS Web Studio"}, "datePublished": "2026-03-01", "dateModified": "2026-03-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I run Claude Code in Docker?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Claude Code runs well in Docker containers. You'll need to configure the sandbox for nested environments using enableWeakerNestedSandbox mode, since bubblewrap needs kernel namespace support."}}, {"@type": "Question", "name": "Does Claude Code work in GitHub Codespaces?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Claude Code works in Codespaces and similar cloud development environments. Install it via npm as usual. Network configuration may require setting HTTP_PROXY or HTTPS_PROXY if your environment routes traffic through a proxy."}}, {"@type": "Question", "name": "Is WSL2 better than native Windows?", "acceptedAnswer": {"@type": "Answer", "text": "For Claude Code, WSL2 is strongly recommended over native Windows. Sandboxing requires bubblewrap which only works on Linux/WSL2 (not WSL1). WSL2 also avoids path detection issues that sometimes occur on native Windows."}}, {"@type": "Question", "name": "What's the minimum hardware for Claude Code?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code itself is lightweight \u2014 it runs as a Node.js process and sends API calls to Anthropic's servers. The actual AI computation happens in the cloud. Any machine that can run Node.js 18+ and maintain an internet connection is sufficient."}}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<nav class="blog-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="blog-nav-logo">⚡ <span>claude</span>code.guide</a>
+  <div class="blog-nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/#modules">Modules</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#pricing" class="blog-nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="blog-hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="document.getElementById('bm').classList.toggle('active');this.setAttribute('aria-expanded',document.getElementById('bm').classList.contains('active'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="blog-mobile-menu" id="bm">
+  <a href="/blog/">Blog</a>
+  <a href="/#modules">Modules</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#pricing">Get the Guide — $19</a>
+</div>
+<main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Best Claude Code Hosting & Setup
+</nav>
+<header class="article-header">
+  <h1>Best Claude Code Hosting & Setup: Local vs Cloud vs Codespaces (2026)</h1>
+  <div class="article-meta">
+    <span>By Eric Coste</span>
+    <time datetime="2026-03-01">March 10, 2026</time>
+    <span>8 min read</span>
+  </div>
+</header>
+<article class="article-body">
+<h2>Choosing Your Claude Code Environment</h2>
+<p>Where you run Claude Code affects your experience more than you might expect. The right environment gives you fast sandboxing, reliable MCP connections, and smooth authentication. The wrong one leads to permission errors, WSL1 sandbox failures, and Docker namespace issues.</p>
+
+<h2>Option 1: Local Machine (Recommended for Most Developers)</h2>
+<p>Running Claude Code directly on your development machine is the simplest and most common setup. On macOS, sandboxing uses the built-in Seatbelt framework and works out of the box. On Linux, you'll need to install bubblewrap and socat for sandbox support.</p>
+<p>The main advantage is zero latency between Claude Code and your file system. Claude reads your files, runs your tests, and modifies your code at native speed. Authentication is straightforward — just <code>claude auth login</code> and authenticate via your browser.</p>
+
+<h3>macOS setup</h3>
+<pre><code># Install (requires Node.js 18+)
+npm install -g @anthropic-ai/claude-code
+
+# Start Claude Code
+cd your-project
+claude
+
+# Sandboxing works automatically via Seatbelt</code></pre>
+
+<h3>Linux setup</h3>
+<pre><code># Install prerequisites for sandboxing
+sudo apt install bubblewrap socat
+
+# Install Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# Enable sandbox
+claude
+/sandbox</code></pre>
+
+<h2>Option 2: WSL2 on Windows</h2>
+<p>If you're on Windows, WSL2 is the recommended path. WSL1 is not supported for sandboxing because bubblewrap requires kernel namespace features only available in WSL2. Install Ubuntu 24.04 through the Microsoft Store, then follow the Linux setup above.</p>
+<p>Common WSL2 gotcha: make sure you're using the Linux npm installation, not the Windows one. If <code>which npm</code> returns a Windows path, your shell is picking up the wrong binary.</p>
+
+<h2>Option 3: Docker Containers</h2>
+<p>Docker works well for isolating Claude Code, especially for CI/CD pipelines or teams that want reproducible environments. The key configuration detail is sandbox compatibility: Docker containers don't support user namespaces by default, so you'll need to enable <code>enableWeakerNestedSandbox</code> mode.</p>
+<p>For maximum security in Docker, consider using <code>--dangerously-skip-permissions</code> only in network-isolated containers with no internet access, and never on a development machine with sensitive data.</p>
+
+<h2>Option 4: Cloud Development Environments</h2>
+<p>GitHub Codespaces, Gitpod, and similar cloud environments work with Claude Code. The setup is identical to Linux — install via npm, authenticate, and go. Network configuration may require proxy settings depending on your environment's infrastructure.</p>
+<p>Cloud environments are particularly useful for teams that need standardized setups or for working on projects you don't want on your local machine.</p>
+
+<h2>Which Should You Choose?</h2>
+<p>For daily development, local is best — lowest latency, simplest setup, full sandbox support. For teams needing consistency, Docker or Codespaces work well. For Windows users, WSL2 is the clear path forward. For CI/CD automation, Docker with managed settings gives you reproducible, secure builds.</p>
+
+<div class="cta-box">
+  <h3>Master Claude Code in One Afternoon</h3>
+  <p>9 modules, 120+ commands, 30+ error fixes. Cross-platform. One-time $19.</p>
+  <a href="/#pricing" class="btn">Get Instant Access — $19</a>
+  <p class="bonus">Bonus: Free Claude Code Quick-Start Guide included with purchase</p>
+</div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Can I run Claude Code in Docker?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Yes. Claude Code runs well in Docker containers. You'll need to configure the sandbox for nested environments using enableWeakerNestedSandbox mode, since bubblewrap needs kernel namespace support.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Does Claude Code work in GitHub Codespaces?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Yes. Claude Code works in Codespaces and similar cloud development environments. Install it via npm as usual. Network configuration may require setting HTTP_PROXY or HTTPS_PROXY if your environment routes traffic through a proxy.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Is WSL2 better than native Windows?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">For Claude Code, WSL2 is strongly recommended over native Windows. Sandboxing requires bubblewrap which only works on Linux/WSL2 (not WSL1). WSL2 also avoids path detection issues that sometimes occur on native Windows.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What's the minimum hardware for Claude Code?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Claude Code itself is lightweight — it runs as a Node.js process and sends API calls to Anthropic's servers. The actual AI computation happens in the cloud. Any machine that can run Node.js 18+ and maintain an internet connection is sufficient.</p>
+</div>
+
+</article>
+<section class="related-posts"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-claude-code.html" class="related-card"><h3>What Is Claude Code?</h3><p>Complete beginner's guide to Anthropic's AI coding tool.</p></a><a href="/blog/fix-common-errors.html" class="related-card"><h3>Fix Common Errors</h3><p>30+ real error fixes with copy-paste solutions.</p></a><a href="/blog/workflow-best-practices.html" class="related-card"><h3>Workflow Best Practices</h3><p>Session management, prompting, and productivity tips.</p></a></div></section>
+</main>
+<footer class="blog-footer" role="contentinfo">
+  <p>&copy; 2026 <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>. All rights reserved. Made with 🤖 in Las Vegas</p>
+</footer>
+</body>
+</html>

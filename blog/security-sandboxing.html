@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Claude Code Security: Permissions, Sandboxing & Safe Usage (2026)</title>
+<meta name="description" content="Configure Claude Code security properly: permissions, sandboxing, deny rules, prompt injection defense, and safe practices for production environments.">
+<meta name="keywords" content="Claude Code security, Claude Code sandboxing, Claude Code permissions, Claude Code safety, Claude Code prompt injection, bubblewrap, Seatbelt">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/blog/security-sandboxing.html">
+<meta property="og:title" content="Claude Code Security: Permissions, Sandboxing & Safe Usage (2026)">
+<meta property="og:description" content="Configure Claude Code security properly: permissions, sandboxing, deny rules, prompt injection defense, and safe practices for production environments.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://claudecodeguide.com/blog/security-sandboxing.html">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Code Security: Permissions, Sandboxing & Safe Usage (2026)">
+<meta name="twitter:description" content="Configure Claude Code security properly: permissions, sandboxing, deny rules, prompt injection defense, and safe practices for production environments.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Code Security: Permissions, Sandboxing & Safe Usage (2026)", "description": "Configure Claude Code security properly: permissions, sandboxing, deny rules, prompt injection defense, and safe practices for production environments.", "author": {"@type": "Person", "name": "Eric Coste"}, "publisher": {"@type": "Organization", "name": "EBSS Web Studio"}, "datePublished": "2026-03-01", "dateModified": "2026-03-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Claude Code safe to use?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code is safe when properly configured. Enable sandboxing (/sandbox), use deny rules for sensitive directories, and never use --dangerously-skip-permissions on a machine with sensitive data. The multi-layered permission system protects against both accidental and malicious actions."}}, {"@type": "Question", "name": "What is sandboxing in Claude Code?", "acceptedAnswer": {"@type": "Answer", "text": "Sandboxing uses OS-level primitives (Seatbelt on macOS, bubblewrap on Linux) to isolate Claude Code's processes. It restricts filesystem access to your project directory and network access to approved domains, preventing data exfiltration even if a prompt injection succeeds."}}, {"@type": "Question", "name": "Should I use --dangerously-skip-permissions?", "acceptedAnswer": {"@type": "Answer", "text": "Only in completely isolated environments like Docker containers with no internet access and no sensitive data. Never on your development machine. The sandbox feature provides a much safer alternative that reduces permission prompts by 84% without removing all safety guardrails."}}, {"@type": "Question", "name": "How do I protect my SSH keys and .env files?", "acceptedAnswer": {"@type": "Answer", "text": "Add deny rules in your settings.json: permissions.deny should include 'Read(**/.env)', 'Read(~/.ssh/**)', and 'Read(**/.credentials*)'. Sandboxing also blocks access to directories outside your project by default."}}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<nav class="blog-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="blog-nav-logo">⚡ <span>claude</span>code.guide</a>
+  <div class="blog-nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/#modules">Modules</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#pricing" class="blog-nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="blog-hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="document.getElementById('bm').classList.toggle('active');this.setAttribute('aria-expanded',document.getElementById('bm').classList.contains('active'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="blog-mobile-menu" id="bm">
+  <a href="/blog/">Blog</a>
+  <a href="/#modules">Modules</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#pricing">Get the Guide — $19</a>
+</div>
+<main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Claude Code Security
+</nav>
+<header class="article-header">
+  <h1>Claude Code Security: Permissions, Sandboxing & Safe Usage (2026)</h1>
+  <div class="article-meta">
+    <span>By Eric Coste</span>
+    <time datetime="2026-03-01">March 5, 2026</time>
+    <span>10 min read</span>
+  </div>
+</header>
+<article class="article-body">
+<h2>Understanding the Threat Model</h2>
+<p>Claude Code runs with your user permissions. Every command it executes, every file it reads, every network request it makes happens as <em>you</em>. A misconfigured Claude Code can read your SSH keys, access your .env files, exfiltrate data, or modify system configuration files.</p>
+<p>The primary risk isn't that Claude is malicious — it's that prompt injection through malicious code, packages, or file contents can manipulate Claude's behavior. A poisoned npm package, a crafted README, or a malicious API response could instruct Claude to run destructive commands.</p>
+
+<h2>The Permission System</h2>
+<p>Claude Code's security model has four layers: permission modes, allow/deny rules, sandboxing, and CLAUDE.md instructions. Each layer addresses different risks, and they work together for defense in depth.</p>
+
+<h3>Permission modes</h3>
+<p>Claude Code supports five permission modes: <strong>Normal</strong> (ask for everything), <strong>Auto-edit</strong> (auto-approve edits, ask for commands), <strong>Auto-approve</strong> (approve everything on your allowlist), <strong>YOLO</strong> (skip all checks — dangerous), and <strong>Plan</strong> (read-only, no writes or executions).</p>
+<p>For most developers, Normal mode with sandboxing enabled gives the best balance of productivity and safety.</p>
+
+<h2>Enable Sandboxing</h2>
+<p>Sandboxing is the single most important security feature in Claude Code. It reduces permission prompts by 84% while actually increasing security. Enable it now:</p>
+<pre><code># Inside Claude Code:
+/sandbox
+
+# This opens a menu to choose your mode:
+# - Auto-allow: sandbox auto-approves safe commands
+# - Regular: still asks permission, but enforces sandbox limits
+
+# On Linux, install prerequisites first:
+sudo apt install bubblewrap socat</code></pre>
+
+<h3>What sandboxing protects</h3>
+<p>Filesystem isolation restricts writes to your project directory only. Claude cannot modify ~/.bashrc, /usr/local/bin, or any file outside your working directory. Network isolation routes all outbound connections through a proxy that only allows approved domains. Even if a prompt injection instructs Claude to exfiltrate your SSH keys, the sandbox blocks both the file read and the network request.</p>
+
+<h2>Configuring Deny Rules</h2>
+<p>Deny rules are your strongest defense — they cannot be overridden by any allow rule at any scope level.</p>
+<pre><code>// ~/.claude/settings.json (global — applies everywhere)
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(~/.ssh/**)",
+      "Read(**/.credentials*)",
+      "Read(**/secrets/**)",
+      "Bash(rm -rf*)",
+      "Bash(curl*)",
+      "WebFetch"
+    ]
+  }
+}</code></pre>
+
+<h2>Prompt Injection Defense</h2>
+<p>Prompt injection occurs when malicious content in a file or API response manipulates Claude's behavior. The permission system is your first defense — even if an injected prompt instructs Claude to run <code>rm -rf /</code>, Normal mode requires your confirmation.</p>
+<p>Hooks provide a second defense layer. A PreToolUse hook that blocks specific commands fires at every execution point, regardless of what's in the conversation context:</p>
+<pre><code>// In your settings.json hooks configuration
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Bash",
+      "command": "if echo \"$TOOL_INPUT\" | grep -qE 'rm -rf|curl.*\|.*bash|wget.*\|'; then echo 'BLOCKED: Dangerous command pattern detected'; exit 1; fi"
+    }]
+  }
+}</code></pre>
+
+<h2>Team Security with Managed Settings</h2>
+<p>For teams, use a managed-settings.json file that enforces security policies organization-wide. This file takes highest precedence and cannot be overridden by individual developers.</p>
+<p>Distribute it through your deployment pipeline, CI/CD system, or MDM solution. Include mandatory deny rules, required sandbox mode, and approved MCP server lists.</p>
+
+<h2>Security Checklist</h2>
+<p>Before using Claude Code on any project with sensitive data, verify these settings: sandboxing is enabled (<code>/sandbox</code>), deny rules block .env and credential files, network isolation prevents unauthorized outbound connections, MCP servers are explicitly approved (not auto-accepted), and hooks block destructive command patterns.</p>
+
+<div class="cta-box">
+  <h3>Master Claude Code in One Afternoon</h3>
+  <p>9 modules, 120+ commands, 30+ error fixes. Cross-platform. One-time $19.</p>
+  <a href="/#pricing" class="btn">Get Instant Access — $19</a>
+  <p class="bonus">Bonus: Free Claude Code Quick-Start Guide included with purchase</p>
+</div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Is Claude Code safe to use?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Claude Code is safe when properly configured. Enable sandboxing (/sandbox), use deny rules for sensitive directories, and never use --dangerously-skip-permissions on a machine with sensitive data. The multi-layered permission system protects against both accidental and malicious actions.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What is sandboxing in Claude Code?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Sandboxing uses OS-level primitives (Seatbelt on macOS, bubblewrap on Linux) to isolate Claude Code's processes. It restricts filesystem access to your project directory and network access to approved domains, preventing data exfiltration even if a prompt injection succeeds.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Should I use --dangerously-skip-permissions?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Only in completely isolated environments like Docker containers with no internet access and no sensitive data. Never on your development machine. The sandbox feature provides a much safer alternative that reduces permission prompts by 84% without removing all safety guardrails.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">How do I protect my SSH keys and .env files?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Add deny rules in your settings.json: permissions.deny should include 'Read(**/.env)', 'Read(~/.ssh/**)', and 'Read(**/.credentials*)'. Sandboxing also blocks access to directories outside your project by default.</p>
+</div>
+
+</article>
+<section class="related-posts"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-claude-code.html" class="related-card"><h3>What Is Claude Code?</h3><p>Complete beginner's guide to Anthropic's AI coding tool.</p></a><a href="/blog/hosting-setup.html" class="related-card"><h3>Best Hosting & Setup</h3><p>Local vs cloud vs Codespaces for Claude Code.</p></a><a href="/blog/fix-common-errors.html" class="related-card"><h3>Fix Common Errors</h3><p>30+ real error fixes with copy-paste solutions.</p></a></div></section>
+</main>
+<footer class="blog-footer" role="contentinfo">
+  <p>&copy; 2026 <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>. All rights reserved. Made with 🤖 in Las Vegas</p>
+</footer>
+</body>
+</html>

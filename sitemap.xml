@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://claudecodeguide.com/</loc><lastmod>2026-03-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/</loc><lastmod>2026-03-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/what-is-claude-code.html</loc><lastmod>2026-03-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/hosting-setup.html</loc><lastmod>2026-03-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/fix-common-errors.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/workflow-best-practices.html</loc><lastmod>2026-03-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/security-sandboxing.html</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://claudecodeguide.com/blog/cost-optimization.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

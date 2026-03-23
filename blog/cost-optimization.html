@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Claude Code Cost Optimization: Reduce API Spend by 50-75% (2026)</title>
+<meta name="description" content="Proven strategies to cut Claude Code costs by 50-75%: thinking token caps, model selection, context management, prompt caching, and subscription tier optimization.">
+<meta name="keywords" content="Claude Code cost, Claude Code pricing, Claude Code tokens, reduce Claude Code spend, Claude Code optimization, MAX_THINKING_TOKENS, Claude Code budget">
+<meta name="author" content="Eric Coste">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudecodeguide.com/blog/cost-optimization.html">
+<meta property="og:title" content="Claude Code Cost Optimization: Reduce API Spend by 50-75% (2026)">
+<meta property="og:description" content="Proven strategies to cut Claude Code costs by 50-75%: thinking token caps, model selection, context management, prompt caching, and subscription tier optimization.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://claudecodeguide.com/blog/cost-optimization.html">
+<meta property="og:image" content="https://claudecodeguide.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Code Cost Optimization: Reduce API Spend by 50-75% (2026)">
+<meta name="twitter:description" content="Proven strategies to cut Claude Code costs by 50-75%: thinking token caps, model selection, context management, prompt caching, and subscription tier optimization.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Code Cost Optimization: Reduce API Spend by 50-75% (2026)", "description": "Proven strategies to cut Claude Code costs by 50-75%: thinking token caps, model selection, context management, prompt caching, and subscription tier optimization.", "author": {"@type": "Person", "name": "Eric Coste"}, "publisher": {"@type": "Organization", "name": "EBSS Web Studio"}, "datePublished": "2026-03-01", "dateModified": "2026-03-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does Claude Code cost per month?", "acceptedAnswer": {"@type": "Answer", "text": "Average is $6/day or $100-200/month on API with Sonnet. Pro subscription is $20/month with usage limits. Max 5x ($100/month) and Max 20x ($200/month) offer higher limits. Most developers save money on Max vs API if they use Claude Code daily."}}, {"@type": "Question", "name": "What's the single biggest cost saving tip?", "acceptedAnswer": {"@type": "Answer", "text": "Set MAX_THINKING_TOKENS to 10,000. Extended thinking can consume tens of thousands of tokens per response, and for most routine development tasks, 10K tokens provides sufficient reasoning depth. This alone can reduce costs 30-40%."}}, {"@type": "Question", "name": "Should I use Sonnet or Opus?", "acceptedAnswer": {"@type": "Answer", "text": "Default to Sonnet for 80% of tasks \u2014 it handles most coding work well at 1/5 the cost of Opus. Switch to Opus only for complex architecture decisions, deep debugging, or multi-system refactoring where reasoning quality matters."}}, {"@type": "Question", "name": "How do I track my Claude Code spending?", "acceptedAnswer": {"@type": "Answer", "text": "Use /cost inside Claude Code for session stats. Install ccusage (npm package) for historical analysis. On API, use Anthropic's Usage & Cost Admin API. Max subscribers can check /stats for usage patterns."}}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<nav class="blog-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="blog-nav-logo">⚡ <span>claude</span>code.guide</a>
+  <div class="blog-nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/#modules">Modules</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#pricing" class="blog-nav-cta">Get the Guide — $19</a>
+  </div>
+  <button class="blog-hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="document.getElementById('bm').classList.toggle('active');this.setAttribute('aria-expanded',document.getElementById('bm').classList.contains('active'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="blog-mobile-menu" id="bm">
+  <a href="/blog/">Blog</a>
+  <a href="/#modules">Modules</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#pricing">Get the Guide — $19</a>
+</div>
+<main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Claude Code Cost Optimization
+</nav>
+<header class="article-header">
+  <h1>Claude Code Cost Optimization: Reduce API Spend by 50-75% (2026)</h1>
+  <div class="article-meta">
+    <span>By Eric Coste</span>
+    <time datetime="2026-03-01">March 1, 2026</time>
+    <span>10 min read</span>
+  </div>
+</header>
+<article class="article-body">
+<h2>Where Your Tokens Go</h2>
+<p>Understanding token consumption is the first step to reducing it. Claude Code costs come from four sources: input tokens (your messages + file reads + context), output tokens (Claude's responses + code + thinking), cache writes (first-time context storage), and cache reads (subsequent context retrieval).</p>
+<p>The surprising reality: over 90% of tokens for most developers are cache reads. Input and output tokens — the ones you'd normally think about — are a tiny fraction of the total. But output tokens cost 5x more per token than input, so optimizing what Claude generates has outsized impact.</p>
+
+<h2>The Four Highest-Impact Strategies</h2>
+<p>These four changes account for the majority of achievable savings. Implement them in order of impact.</p>
+
+<h3>1. Cap thinking tokens (biggest lever)</h3>
+<pre><code># Set in your shell profile
+export MAX_THINKING_TOKENS=10000
+
+# Or per-session: reduce effort level
+/effort low    # For simple tasks
+/effort medium # Default
+/effort high   # For complex reasoning</code></pre>
+<p>Extended thinking is enabled by default and can consume tens of thousands of tokens per response. For routine coding tasks, 10,000 tokens provides sufficient reasoning depth. This single change can reduce costs by 30-40%.</p>
+
+<h3>2. Model selection (use Sonnet by default)</h3>
+<pre><code># Default to Sonnet for implementation
+/model sonnet
+
+# Switch to Opus only for architecture and complex debugging
+/model opus
+
+# Or use opusplan: Opus for planning, Sonnet for code
+/model opusplan</code></pre>
+<p>Sonnet costs $3/$15 per million tokens. Opus costs $15/$75. That's a 5x difference. Sonnet handles 80% of coding tasks just as well. Reserve Opus for complex planning and deep analysis.</p>
+
+<h3>3. Context management</h3>
+<pre><code># Clear between unrelated tasks — stale context wastes tokens
+/clear
+
+# Compact with specific instructions
+/compact Keep only the API contract and current implementation
+
+# Use CLAUDE.md for persistent context instead of
+# repeating it in every conversation</code></pre>
+<p>Every message you send includes the entire conversation history. A 50-message session costs significantly more per message than starting fresh. Aggressive clearing and compaction keeps per-message costs low.</p>
+
+<h3>4. Specific prompting</h3>
+<p>Vague prompts force Claude to explore, reading many files to understand what you want. Specific prompts with file names, expected outcomes, and constraints let Claude act directly. The tokens saved on exploration compound across hundreds of interactions per month.</p>
+
+<h2>Subscription vs API: The Math</h2>
+<p>If your monthly API equivalent exceeds $100, Max 5x ($100/month) saves money. If it exceeds $200, Max 20x ($200/month) makes sense. Both include Opus access and priority during peak demand.</p>
+<p>Track your API spend for one week, multiply by 4, and compare against subscription tiers. Most daily Claude Code users save 50-90% by switching from API to Max.</p>
+
+<h2>Advanced Cost Reduction</h2>
+<p>Beyond the big four, these techniques provide incremental savings: use subagents for verbose operations (tests, docs, log analysis) so output stays in the subagent's context, disable non-essential traffic with <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1</code>, and keep CLAUDE.md under 50 lines — every instruction consumes tokens on every message.</p>
+
+<h2>Monitoring Your Spend</h2>
+<pre><code># Session cost (inside Claude Code)
+/cost
+
+# Historical analysis
+npx ccusage
+
+# Enable cost in your status bar
+# Settings > Status line > Show cost</code></pre>
+<p>You can't optimize what you don't measure. Track your weekly spend, identify which sessions cost the most, and adjust your model selection and session management accordingly. Most developers reduce costs 40-70% within the first month of active monitoring.</p>
+
+<div class="cta-box">
+  <h3>Master Claude Code in One Afternoon</h3>
+  <p>9 modules, 120+ commands, 30+ error fixes. Cross-platform. One-time $19.</p>
+  <a href="/#pricing" class="btn">Get Instant Access — $19</a>
+  <p class="bonus">Bonus: Free Claude Code Quick-Start Guide included with purchase</p>
+</div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">How much does Claude Code cost per month?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Average is $6/day or $100-200/month on API with Sonnet. Pro subscription is $20/month with usage limits. Max 5x ($100/month) and Max 20x ($200/month) offer higher limits. Most developers save money on Max vs API if they use Claude Code daily.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">What's the single biggest cost saving tip?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Set MAX_THINKING_TOKENS to 10,000. Extended thinking can consume tens of thousands of tokens per response, and for most routine development tasks, 10K tokens provides sufficient reasoning depth. This alone can reduce costs 30-40%.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">Should I use Sonnet or Opus?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Default to Sonnet for 80% of tasks — it handles most coding work well at 1/5 the cost of Opus. Switch to Opus only for complex architecture decisions, deep debugging, or multi-system refactoring where reasoning quality matters.</p>
+</div>
+<div class="faq-item" style="border-bottom:1px solid var(--border-light);padding:16px 0">
+<h3 style="font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:8px">How do I track my Claude Code spending?</h3>
+<p style="font-size:.92rem;color:var(--text-dim);line-height:1.7;margin:0">Use /cost inside Claude Code for session stats. Install ccusage (npm package) for historical analysis. On API, use Anthropic's Usage & Cost Admin API. Max subscribers can check /stats for usage patterns.</p>
+</div>
+
+</article>
+<section class="related-posts"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-claude-code.html" class="related-card"><h3>What Is Claude Code?</h3><p>Complete beginner's guide to Anthropic's AI coding tool.</p></a><a href="/blog/hosting-setup.html" class="related-card"><h3>Best Hosting & Setup</h3><p>Local vs cloud vs Codespaces for Claude Code.</p></a><a href="/blog/fix-common-errors.html" class="related-card"><h3>Fix Common Errors</h3><p>30+ real error fixes with copy-paste solutions.</p></a></div></section>
+</main>
+<footer class="blog-footer" role="contentinfo">
+  <p>&copy; 2026 <a href="https://ebsswebstudio.com" target="_blank" rel="noopener">EBSS Web Studio</a>. All rights reserved. Made with 🤖 in Las Vegas</p>
+</footer>
+</body>
+</html>
